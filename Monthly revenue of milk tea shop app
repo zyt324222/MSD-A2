@@ -1,1 +1,27 @@
+奶茶店营收记录程序
+def record_revenue():
+# 初始化营收列表
+revenue = []
+days_in_month = 30 # 假设一个月有30天
 
+# 循环获取每一天的营收
+for day in range(1, days_in_month + 1):
+    while True:
+        try:
+            daily_revenue = float(input(f"请输入第 {day} 天的营收（元）："))
+            revenue.append(daily_revenue)
+            break  # 成功输入后跳出循环
+        except ValueError:
+            print("无效输入，请输入数字。")
+
+# 计算总营收和平均日营收
+total_revenue = sum(revenue)
+average_revenue = total_revenue / days_in_month
+
+# 输出结果
+print("\n奶茶店一个月的营收记录：")
+for day, rev in enumerate(revenue, start=1):
+    print(f"第 {day} 天的营收: {rev:.2f} 元")
+
+print(f"\n总营收: {total_revenue:.2f} 元")
+print(f"平均日营收: {average_revenue:.2f} 元")
